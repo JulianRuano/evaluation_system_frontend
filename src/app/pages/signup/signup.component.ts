@@ -2,8 +2,8 @@ import { JsonPipe, NgFor } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { Validators } from '@angular/forms';
-import { UserService } from '../services/user.service';
-import { AlertService } from '../services/helpers/alerts/alert.service';
+import { UserService } from '../../services/user.service';
+import { AlertService } from '../../services/helpers/alerts/alert.service';
 
 @Component({
   selector: 'app-signup',
