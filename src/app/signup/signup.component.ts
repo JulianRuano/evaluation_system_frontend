@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { UserService } from '../services/user.service';
+import { AlertService } from '../services/helpers/alerts/alert.service';
 
 @Component({
   selector: 'app-signup',
@@ -22,12 +23,12 @@ export class SignupComponent {
   });
 
 
-  constructor(private formBuilder: FormBuilder, private  userService: UserService) { }
+  constructor(private formBuilder: FormBuilder, private  userService: UserService, private alertService:AlertService) { }
 
   onSubmit() {
     //validar con signupForm
     if (this.signupForm.invalid) {
-      alert('invalid form');
+      this.alertService.showAlertError("Error en el formulario");
       return;
     }
 
