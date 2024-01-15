@@ -2,7 +2,7 @@
   <div class="flex justify-center w-full my-auto xl:gap-14 lg:justify-normal md:gap-5 draggable">
     <div class="flex items-center justify-center w-full ">
       <div class="flex items-center xl:p-10">
-        <form class="flex flex-col w-full h-full pb-6 py-4 px-8 text-center border-solid border-2 border-gray-200 rounded-2xl lg:px-8 lg:py-10 lg:pb-12">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="flex flex-col w-full h-full pb-6 py-4 px-8 text-center border-solid border-2 border-gray-200 rounded-2xl lg:px-8 lg:py-10 lg:pb-12">
           <div class="mb-3 text-2xl font-bold text-gray-900">
             Iniciar sesión
           </div>
@@ -16,10 +16,10 @@
             <hr class="h-0 border-b border-solid border-gray-300 grow">
           </div>
           <p class="mb-4 text-gray-700">Introduce tu correo electrónico y contraseña</p>
-          <label for="email" class="mb-2 text-sm text-start text-gray-900">Email*</label>
-          <input id="email" type="email" placeholder="mail@julian.com" class="flex items-center w-full px-5 py-4 mr-2 text-sm font-medium outline-none focus:bg-gray-200 mb-7 placeholder:text-gray-700 bg-gray-100 text-gray-900 rounded-2xl"/>
+          <label for="email" class="mb-2 text-sm text-start text-gray-900">Usuario*</label>
+          <input id="username" type="username" formControlName="username" placeholder="JulianM" class="flex items-center w-full px-5 py-4 mr-2 text-sm font-medium outline-none focus:bg-gray-200 mb-7 placeholder:text-gray-700 bg-gray-100 text-gray-900 rounded-2xl"/>
           <label for="password" class="mb-2 text-sm text-start text-gray-900">Contraseña*</label>
-          <input id="password" type="password" placeholder="Introduce tu contraseña" class="flex items-center w-full px-5 py-4 mb-5 mr-2 text-sm font-medium outline-none focus:bg-gray-200 placeholder:text-gray-700 bg-gray-100 text-gray-900 rounded-2xl"/>
+          <input id="password" type="password" formControlName="password" placeholder="Introduce tu contraseña" class="flex items-center w-full px-5 py-4 mb-5 mr-2 text-sm font-medium outline-none focus:bg-gray-200 placeholder:text-gray-700 bg-gray-100 text-gray-900 rounded-2xl"/>
           <div class="flex items-center justify-between mb-5">
             <div class="flex items-center">
               <input id="remember" type="checkbox" class="w-4 h-4 mr-2 text-purple-blue-500 rounded-md">
