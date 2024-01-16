@@ -37,12 +37,22 @@ export class LoginComponent {
           next: (data:any) => {
             this.authService.setUserData(data);
             this.alertService.showAlertSuccess("Usuario logueado correctamente");
+            //vericicamos el rol del usuario
+            if (this.authService.getUserRole() == 'ADMIN') {
+              window.location.href = '/admin';
+            } else if (this.authService.getUserRole() == 'USER') {
+              window.location.href = '/user';
+            }
+            else {
+              window.location.href = '/login';
+            }
+
           },
           error: error => this.alertService.showAlertError("Error al obtener el usuario")
         }
         );
     },
-      error: error => console.error(error)
+      error: error => this.alertService.showAlertError("Error al loguear el usuario")
     }
     );
     this.loginForm.reset();
