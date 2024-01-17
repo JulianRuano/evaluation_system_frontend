@@ -34,7 +34,7 @@ export class SignupComponent {
 
     this.userService.saveUser(this.signupForm.value).subscribe({
       next: data => alert(JSON.stringify(data)),
-      error: error => console.error(error)
+      error: error => this.alertService.showAlertError(error.error.message),
     }
     );
     this.signupForm.reset();

@@ -4,11 +4,10 @@ import { API_URL } from '../API_URL';
 export const authInterceptor: HttpInterceptorFn = (req, next) => {
   const excludedRoutes = [
     `${API_URL}/auth/login`,
+    `${API_URL}/auth/register`
   ];
 
-  console.log('****'+req.url+'****')
   if (excludedRoutes.includes(req.url)) {
-    console.log('Excluded route...');
     return next(req);
   }
   const token = localStorage.getItem('token');

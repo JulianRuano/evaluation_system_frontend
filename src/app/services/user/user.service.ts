@@ -10,6 +10,6 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   public saveUser(user: any) {
-    return this.http.post(`${API_URL}/user/`, user);
+    return this.http.post(`${API_URL}/auth/register`, user);
   }
 }

@@ -18,5 +18,4 @@ export class NavbarComponent {
     window.location.reload();
   }
 
-
 }

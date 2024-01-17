@@ -7,8 +7,7 @@
       <div class="text-sm lg:flex-grow">
       </div>
       <div>
-        <span *ngIf="authService.isLogged()" class="text-sm font-bold px-4 ">{{authService.getUserData().username}}</span>
-        <a *ngIf="authService.isLogged()" (click)="logout" class="text-sm font-bold px-4 py-2 mx-2 rounded-lg text-stone-100  bg-blue-600 hover:border-transparent hover:bg-blue-500  mt-4 lg:mt-0">Cerrar Sesion</a>
+        <a *ngIf="authService.isLogged()" (click)="logout()" class="text-sm font-bold px-4 py-2 mx-2 rounded-lg text-stone-100  bg-blue-600 hover:border-transparent hover:bg-blue-500  mt-4 lg:mt-0">Cerrar Sesion</a>
         <a *ngIf="!authService.isLogged()" href="/login" class="text-sm font-bold px-4 py-2 mx-2 rounded-lg text-stone-100  bg-blue-600 hover:border-transparent hover:bg-blue-500  mt-4 lg:mt-0">Iniciar Sesion</a>
         <a *ngIf="!authService.isLogged()" href="/signup" class="text-sm font-bold px-4 py-2 mx-2 rounded-lg text-stone-100  bg-blue-600 hover:border-transparent hover:bg-blue-500  mt-4 lg:mt-0">Registrarse</a>
       </div>
