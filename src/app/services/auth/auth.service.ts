@@ -61,7 +61,6 @@ export class AuthService {
 
   // Obtenemos el nombre del usuario
   public getCurrentUser() {
-    //enviar en el header el token
     return this.http.get(`${API_URL}/auth/getCurrentUser`, {} );
   }
 
