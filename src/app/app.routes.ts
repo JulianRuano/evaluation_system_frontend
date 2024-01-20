@@ -2,11 +2,18 @@ import { Routes } from '@angular/router';
 import { SignupComponent } from './pages/signup/signup.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
-import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
 import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboard.component';
 import { permissionsGuard } from './services/helpers/guard/permissions.guard';
+import { NavSidebarComponent } from './pages/admin/nav-sidebar/nav-sidebar.component';
+import { AddQuestionsComponent } from './pages/admin/add-questions/add-questions.component';
 
 export const routes: Routes = [
+  {
+    path: '',
+    component: NavSidebarComponent,
+    title: 'test',
+    pathMatch: 'full',
+  },
   {
     path: 'signup',
     component: SignupComponent,
@@ -21,7 +28,7 @@ export const routes: Routes = [
   },
   {
     path: 'admin',
-    component: DashboardComponent,
+    component: UserDashboardComponent,
     title: 'admin',
     pathMatch: 'full',
     canActivate: [permissionsGuard]
@@ -32,5 +39,11 @@ export const routes: Routes = [
     title: 'admin',
     pathMatch: 'full',
     canActivate: [permissionsGuard]
+  },
+  {
+    path: 'questions',
+    component: AddQuestionsComponent,
+    title: 'questions',
+    pathMatch: 'full'
   }
 ];

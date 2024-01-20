@@ -1,0 +1,36 @@
+
+/* Estilos del menú lateral */
+.menu-container {
+  width: 220px;
+  background-color: #ffffff;
+  padding: 16px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  height: 100%;
+}
+
+.menu-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.menu-list {
+  margin-top: 16px;
+  list-style-type: none;
+}
+
+.menu-link {
+  color: #4b5563;
+  text-decoration: none;
+  transition: color 0.3s;
+  font-size: 1.2rem;
+}
+
+.menu-link:hover {
+  color: #2563eb;
+}
+
+/* Estilos del contenido principal */
+.main-content {
+  flex: 1;
+  padding: 16px;
+}

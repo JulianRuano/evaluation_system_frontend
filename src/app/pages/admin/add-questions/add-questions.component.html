@@ -1,0 +1,109 @@
+<div class="nav-container">
+  <app-nav-sidebar></app-nav-sidebar>
+
+  <div class="form-container">
+    <form [formGroup]="dataForm" (ngSubmit)="onSubmit()" class="form-content">
+      <h1 class="form-title">Agregar Pregunta</h1>
+
+      <div class="form-group">
+        <div class="c1">
+          <label class="form-label" for="answer">Pregunta</label>
+          <textarea class="form-input" name="question" id="question" formControlName="question" placeholder="Pregunta" ></textarea>
+        </div>
+        <div class="c2">
+          <input class="form-input form-img" type="file" name="image1" id="image1" >
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="c1">
+          <label class="form-label" for="answer">Respuesta A</label>
+          <textarea class="form-input" name="answer1" id="answer1" formControlName="answer1" placeholder="Respuesta A" ></textarea>
+        </div>
+        <div class="c2">
+          <input class="form-input form-img" type="file" name="image2" id="image2" >
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="c1">
+          <label class="form-label" for="answer">Respuesta B</label>
+          <textarea class="form-input" name="answer2" id="answer2" formControlName="answer2" placeholder="Respuesta B" ></textarea>
+        </div>
+        <div class="c2">
+          <input class="form-input form-img" type="file" name="image3" id="image3" >
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="c1">
+          <label class="form-label" for="answer">Respuesta C</label>
+          <textarea class="form-input" name="answer3" id="answer3" formControlName="answer3" placeholder="Respuesta C" ></textarea>
+        </div>
+        <div class="c2">
+          <input class="form-input form-img" type="file" name="image4" id="image4" >
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="c1">
+          <label class="form-label" for="answer">Respuesta D</label>
+          <textarea class="form-input" name="answer4" id="answer4" formControlName="answer4" placeholder="Respuesta D" ></textarea>
+        </div>
+        <div class="c2">
+          <input class="form-input form-img" type="file" name="image5" id="image5" >
+        </div>
+      </div>
+
+      <div class="form-group margin">
+        <label class="form-label" for="category">Categoría</label>
+        <select class="form-select" name="category" id="category" formControlName="category">
+          <option value="" disabled selected>Selecciona una categoría</option>
+          <option value="1">Categoría 1</option>
+          <option value="2">Categoría 2</option>
+          <option value="3">Categoría 3</option>
+          <option value="4">Categoría 4</option>
+          <option value="5">Categoría 5</option>
+        </select>
+      </div>
+
+      <div class="form-group margin">
+        <label class="form-label" for="level">Nivel</label>
+        <select class="form-select" name="level" id="level" formControlName="level">
+          <option value="" disabled selected>Selecciona un nivel</option>
+          <option value="1" >Nivel 1</option>
+          <option value="2" >Nivel 2</option>
+          <option value="3">Nivel 3</option>
+          <option value="4">Nivel 4</option>
+          <option value="5">Nivel 5</option>
+        </select>
+      </div>
+
+      <div class="form-group margin">
+        <label class="form-label" for="status">Estado</label>
+        <select class="form-select" name="status" id="status" formControlName="status">
+          <option value="" disabled selected>Selecciona un estado</option>
+          <option value="1">Activo</option>
+          <option value="0">Inactivo</option>
+        </select>
+      </div>
+
+      <div class="form-group margin">
+        <label class="form-label" for="correctAnswer">Respuesta correcta</label>
+        <select class="form-select" name="correctAnswer" id="correctAnswer" formControlName="correctAnswer">
+          <option value="" disabled selected>Selecciona la respuesta correcta</option>
+          <option value="A">Respuesta A</option>
+          <option value="B">Respuesta B</option>
+          <option value="C">Respuesta C</option>
+          <option value="D">Respuesta D</option>
+        </select>
+      </div>
+
+      <button class="form-submit" type="submit">Agregar</button>
+      <p>Form Value: {{ dataForm.value | json }}</p>
+
+      <p>Form Status: {{ dataForm.status }}</p>
+
+    </form>
+  </div>
+</div>
