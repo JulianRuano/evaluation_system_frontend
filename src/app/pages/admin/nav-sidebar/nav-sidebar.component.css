@@ -3,7 +3,6 @@
 .menu-container {
   width: 220px;
   background-color: #ffffff;
-  padding: 16px;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   height: 100%;
 }
@@ -11,12 +10,26 @@
 .menu-title {
   font-size: 1.5rem;
   font-weight: 600;
+  padding: 8px 0 4px 16px;
 }
 
 .menu-list {
   margin-top: 16px;
   list-style-type: none;
 }
+
+.menu-list li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+  padding:  8px 0 8px 30px ;
+
+}
+
+.menu-list i {
+  margin-right: 10px;
+}
+
 
 .menu-link {
   color: #4b5563;
@@ -25,12 +38,19 @@
   font-size: 1.2rem;
 }
 
-.menu-link:hover {
-  color: #2563eb;
+li:hover {
+  background-color: #d3d4d6;
 }
 
 /* Estilos del contenido principal */
 .main-content {
   flex: 1;
   padding: 16px;
+}
+
+.menu-divider {
+  border-bottom: 1px solid #ccc;
+  margin: 10px 0;
+  left: 0;
+  right: 0;
 }

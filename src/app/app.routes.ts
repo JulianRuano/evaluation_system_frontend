@@ -6,6 +6,7 @@ import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboa
 import { permissionsGuard } from './services/helpers/guard/permissions.guard';
 import { NavSidebarComponent } from './pages/admin/nav-sidebar/nav-sidebar.component';
 import { AddQuestionsComponent } from './pages/admin/add-questions/add-questions.component';
+import { QuestionsComponent } from './pages/admin/questions/questions.component';
 
 export const routes: Routes = [
   {
@@ -42,8 +43,14 @@ export const routes: Routes = [
   },
   {
     path: 'questions',
-    component: AddQuestionsComponent,
+    component: QuestionsComponent,
     title: 'questions',
+    pathMatch: 'full'
+  },
+  {
+    path: 'addquestions',
+    component: AddQuestionsComponent,
+    title: 'Add Questions',
     pathMatch: 'full'
   }
 ];
