@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavSidebarComponent } from '../nav-sidebar/nav-sidebar.component';
 import { CommonModule } from '@angular/common';
+import { QuestionService } from '../../../services/question/question.service';
 
 @Component({
   selector: 'app-questions',
@@ -10,77 +11,57 @@ import { CommonModule } from '@angular/common';
   styleUrl: './questions.component.css'
 })
 export class QuestionsComponent {
-createQuestion() {
-throw new Error('Method not implemented.');
-}
-  questions: any[] = [
-    {
-      id: 1,
-      question: 'What is the capital of the United States?',
-      answer: 'Washington D.C.',
-      category: 'Geography',
-      level: 'Easy',
-      status: 'Active'
-    },
-    {
-      id: 2,
-      question: 'What is the capital of the United States?',
-      answer: 'Washington D.C.',
-      category: 'Geography',
-      level: 'Easy',
-      status: 'Active'
-    },
-    {
-      id: 3,
-      question: 'What is the capital of the United States?',
-      answer: 'Washington D.C.',
-      category: 'Geography',
-      level: 'Easy',
-      status: 'Active'
-    },
-    {
-      id: 4,
-      question: 'What is the capital of the United States?',
-      answer: 'Washington D.C.',
-      category: 'Geography',
-      level: 'Easy',
-      status: 'Active'
-    },
-    {
-      id: 5,
-      question: 'What is the capital of the United States?',
-      answer: 'Washington D.C.',
-      category: 'Geography',
-      level: 'Easy',
-      status: 'Active'
-    },
-    {
-      id: 6,
-      question: 'What is the capital of the United States?',
-      answer: 'Washington D.C.',
-      category: 'Geography',
-      level: 'Easy',
-      status: 'Active'
-    },
-    {
-      id: 7,
-      question: 'What is the capital of the United States?',
-      answer: 'Washington D.C.',
-      category: 'Geography',
-      level: 'Easy',
-      status: 'Active'
-    },
-    {
-      id: 8,
-      question: 'What is the capital of the United States?',
-      answer: 'Washington D.C.',
-      category: 'Geography',
-      level: 'Easy',
-      status: 'Active'
+
+  constructor(private questionService: QuestionService) { }
+
+  questions: any[] = [];
+  size: number = 10;
+  page: number = 0;
+  totalPages: number = 0;
+  totalElements: number = 0;
+  totalPagesArray: number[] = [];
+
+  getAllQuestions() {
+    this.questionService.getAllQuestions(this.page, this.size).subscribe(
+      (data: any) =>{
+        this.questions = data.content;
+        this.totalPages = data.totalPages;
+        this.totalElements = data.totalElements;
+        this.totalPagesArray = new Array<number>(this.totalPages);
+      },
+      err => {
+        console.log(err);
+      }
+    );
+  }
+
+  nextPage() {
+    if (this.page < this.totalPages - 1){
+      this.page++;
+      this.getAllQuestions();
     }
+  }
+
+  changePage(i: number) {
+    this.page = i;
+    this.getAllQuestions();
+  }
+
+  previousPage() {
+    if (this.page > 0){
+      this.page--;
+      this.getAllQuestions();
+    }
+  }
 
 
-  ];
+  ngOnInit() {
+    this.getAllQuestions();
+  }
+
+  createQuestion() {
+    throw new Error('Method not implemented.');
+  }
 
   editQuestion(arg0: any) {
     throw new Error('Method not implemented.');

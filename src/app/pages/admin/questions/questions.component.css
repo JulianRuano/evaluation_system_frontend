@@ -73,3 +73,35 @@
 .btn-edit i{
   color: rgb(0, 0, 107);
 }
+
+.pagination-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.btn-pagination{
+  background-color: #dadada;
+  border: none;
+  color: rgb(0, 0, 0);
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 2px 1px;
+  cursor: pointer;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.btn-pagination:hover{
+  background-color: #2563eb;
+  color: white;
+}
+
+.active {
+  background-color: #2563eb;
+  color: white;
+}

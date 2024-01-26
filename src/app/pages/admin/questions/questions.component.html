@@ -41,5 +41,21 @@
         </tr>
       </tbody>
     </table>
+    <!-- Pagination -->
+    <tr class="pagination-container">
+      <td>
+        <button class="btn-pagination" (click)="previousPage()"><<</button>
+      </td>
+      <td>
+      </td>
+      <td>
+        <span *ngFor="let p of totalPagesArray; let i = index">
+          <a class="btn-pagination" [class.active]="i === page" (click)="changePage(i)">{{i+1}}</a>
+        </span>
+      </td>
+      <td>
+        <button class="btn-pagination" (click)="nextPage()">>></button>
+      </td>
+    </tr>
   </div>
 </div>
