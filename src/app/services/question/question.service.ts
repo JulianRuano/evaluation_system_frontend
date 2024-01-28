@@ -18,15 +18,15 @@ export class QuestionService {
     return this.http.get(`${API_URL}/question/?page=${page}&size=${size}`);
   }
 
-  public getQuestionById(id: string) {
+  public getQuestionById(id: number) {
     return this.http.get(`${API_URL}/question/${id}`);
   }
 
-  public updateQuestion(id: string, question: any) {
+  public updateQuestion(id: number, question: any) {
     return this.http.put(`${API_URL}/question/${id}`, question);
   }
 
-  public deleteQuestion(id: string) {
+  public deleteQuestion(id: number) {
     return this.http.delete(`${API_URL}/question/${id}`);
   }
 }

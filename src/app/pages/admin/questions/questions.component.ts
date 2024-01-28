@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { NavSidebarComponent } from '../nav-sidebar/nav-sidebar.component';
 import { CommonModule } from '@angular/common';
 import { QuestionService } from '../../../services/question/question.service';
+import { Router } from '@angular/router';
+import { AlertService } from '../../../services/helpers/alerts/alert.service';
 
 @Component({
   selector: 'app-questions',
@@ -12,7 +14,11 @@ import { QuestionService } from '../../../services/question/question.service';
 })
 export class QuestionsComponent {
 
-  constructor(private questionService: QuestionService) { }
+  constructor(
+    private questionService: QuestionService,
+    private router: Router,
+    private alertService: AlertService
+    ) { }
 
   questions: any[] = [];
   size: number = 10;
@@ -22,17 +28,15 @@ export class QuestionsComponent {
   totalPagesArray: number[] = [];
 
   getAllQuestions() {
-    this.questionService.getAllQuestions(this.page, this.size).subscribe(
-      (data: any) =>{
+    this.questionService.getAllQuestions(this.page, this.size).subscribe({
+      next: (data: any) => {
         this.questions = data.content;
         this.totalPages = data.totalPages;
         this.totalElements = data.totalElements;
         this.totalPagesArray = new Array<number>(this.totalPages);
       },
-      err => {
-        console.log(err);
-      }
-    );
+      error: error => console.log(error)
+    });
   }
 
   nextPage() {
@@ -60,14 +64,21 @@ export class QuestionsComponent {
   }
 
   createQuestion() {
-    throw new Error('Method not implemented.');
+    this.router.navigate(['/addquestions']);
   }
 
-  editQuestion(arg0: any) {
-    throw new Error('Method not implemented.');
+  editQuestion(id: number) {
+    this.router.navigate(['/editquestions', id]);
   }
-  deleteQuestion(arg0: any) {
-    throw new Error('Method not implemented.');
+  deleteQuestion(id: number) {
+      this.questionService.deleteQuestion(id).subscribe({
+        next: (data:any) => {
+          this.questionService.deleteQuestion(id);
+          this.getAllQuestions();
+          this.alertService.showAlertSuccess('Pregunta eliminada correctamente');
+        },
+        error: error => console.log(error)
+      });
   }
 
 }
