@@ -10,6 +10,7 @@ export class QuestionService {
   constructor(private http: HttpClient) { }
 
   public saveQuestion(question: any) {
+    console.log(question);
     return this.http.post(`${API_URL}/question/`, question);
   }
 
@@ -23,6 +24,7 @@ export class QuestionService {
   }
 
   public updateQuestion(id: number, question: any) {
+    console.log(question);
     return this.http.put(`${API_URL}/question/${id}`, question);
   }
 

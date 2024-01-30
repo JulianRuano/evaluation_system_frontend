@@ -7,7 +7,6 @@ import { permissionsGuard } from './services/helpers/guard/permissions.guard';
 import { NavSidebarComponent } from './pages/admin/nav-sidebar/nav-sidebar.component';
 import { AddQuestionsComponent } from './pages/admin/add-questions/add-questions.component';
 import { QuestionsComponent } from './pages/admin/questions/questions.component';
-import { EditQuestionComponent } from './pages/admin/edit-question/edit-question.component';
 
 export const routes: Routes = [
   {
@@ -57,8 +56,8 @@ export const routes: Routes = [
     canActivate: [permissionsGuard]
   },
   {
-    path: 'editquestion/:id',
-    component: EditQuestionComponent,
+    path: 'addquestions/:id',
+    component: AddQuestionsComponent,
     title:'Edit Questions',
     pathMatch: 'full',
     canActivate: [permissionsGuard]

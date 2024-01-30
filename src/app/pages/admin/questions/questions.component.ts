@@ -68,7 +68,7 @@ export class QuestionsComponent {
   }
 
   editQuestion(id: number) {
-    this.router.navigate(['/editquestion', id]);
+    this.router.navigate(['/addquestions', id]);
   }
   deleteQuestion(id: number) {
       this.questionService.deleteQuestion(id).subscribe({
