@@ -7,6 +7,7 @@ import { permissionsGuard } from './services/helpers/guard/permissions.guard';
 import { NavSidebarComponent } from './pages/admin/nav-sidebar/nav-sidebar.component';
 import { AddQuestionsComponent } from './pages/admin/add-questions/add-questions.component';
 import { QuestionsComponent } from './pages/admin/questions/questions.component';
+import { CategoriesComponent } from './pages/admin/categories/categories.component';
 
 export const routes: Routes = [
   {
@@ -61,5 +62,14 @@ export const routes: Routes = [
     title:'Edit Questions',
     pathMatch: 'full',
     canActivate: [permissionsGuard]
+  },
+  {
+    path: 'categories',
+    component: CategoriesComponent,
+    title: 'Categories',
+    pathMatch: 'full',
+    canActivate: [permissionsGuard]
   }
+
+
 ];

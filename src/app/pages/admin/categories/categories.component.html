@@ -1,0 +1,56 @@
+<div class="nav-container">
+  <app-nav-sidebar></app-nav-sidebar>
+
+  <div class="categories-container">
+    <div class="title-container">
+      <div class="title">
+        <h1>Lista de categorías</h1>
+      </div>
+      <div class="btn-Create">
+        <button (click)="createCategory()">Crear categoría</button>
+      </div>
+    </div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Nombre</th>
+          <th>Descripción</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let category of categories">
+          <td>{{category.categoryId}}</td>
+          <td>{{category.name}}</td>
+          <td>{{category.description}}</td>
+          <td  class="actions-container">
+            <button class="btn-delete" (click)="deleteCategory(category.categoryId)">
+              <i class="fa-regular fa-trash-can"></i>
+            </button>
+            <button class="btn-edit" (click)="editCategory(category.categoryId)">
+              <i class="fa-regular fa-pen-to-square"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- Pagination -->
+    <tr class="pagination-container">
+      <td>
+        <button class="btn-pagination" (click)="previousPage()"><<</button>
+      </td>
+      <td>
+      </td>
+      <td>
+        <span *ngFor="let p of totalPagesArray; let i = index">
+          <a class="btn-pagination" [class.active]="i === page" (click)="changePage(i)">{{i+1}}</a>
+        </span>
+      </td>
+      <td>
+        <button class="btn-pagination" (click)="nextPage()">>></button>
+      </td>
+    </tr>
+  </div>
+</div>
+
