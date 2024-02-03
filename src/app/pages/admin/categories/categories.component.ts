@@ -10,7 +10,7 @@ import { AlertService } from '../../../services/helpers/alerts/alert.service';
   standalone: true,
   imports: [NavSidebarComponent, CommonModule],
   templateUrl: './categories.component.html',
-  styleUrl: './categories.component.css'
+  styleUrls: ['./categories.component.css', '../../../../assets/styles/table.css']
 })
 export class CategoriesComponent {
 

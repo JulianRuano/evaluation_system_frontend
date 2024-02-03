@@ -1,7 +1,7 @@
 <div class="nav-container">
   <app-nav-sidebar></app-nav-sidebar>
 
-  <div class="categories-container">
+  <div class="general-container">
     <div class="title-container">
       <div class="title">
         <h1>Lista de categorías</h1>
@@ -21,7 +21,7 @@
       </thead>
       <tbody>
         <tr *ngFor="let category of categories">
-          <td>{{category.categoryId}}</td>
+          <td>{{category.id}}</td>
           <td>{{category.name}}</td>
           <td>{{category.description}}</td>
           <td  class="actions-container">

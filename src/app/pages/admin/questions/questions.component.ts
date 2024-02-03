@@ -5,12 +5,13 @@ import { QuestionService } from '../../../services/question/question.service';
 import { Router } from '@angular/router';
 import { AlertService } from '../../../services/helpers/alerts/alert.service';
 
+
 @Component({
   selector: 'app-questions',
   standalone: true,
   imports: [NavSidebarComponent, CommonModule],
   templateUrl: './questions.component.html',
-  styleUrl: './questions.component.css'
+  styleUrls:  ['./questions.component.css', '../../../../assets/styles/table.css']
 })
 export class QuestionsComponent {
 
@@ -30,6 +31,7 @@ export class QuestionsComponent {
   getAllQuestions() {
     this.questionService.getAllQuestions(this.page, this.size).subscribe({
       next: (data: any) => {
+        console.log(data);
         this.questions = data.content;
         this.totalPages = data.totalPages;
         this.totalElements = data.totalElements;
