@@ -8,6 +8,7 @@ import { NavSidebarComponent } from './pages/admin/nav-sidebar/nav-sidebar.compo
 import { AddQuestionsComponent } from './pages/admin/add-questions/add-questions.component';
 import { QuestionsComponent } from './pages/admin/questions/questions.component';
 import { CategoriesComponent } from './pages/admin/categories/categories.component';
+import { SaveEditCategoryComponent } from './pages/admin/save-edit-category/save-edit-category.component';
 
 export const routes: Routes = [
   {
@@ -69,7 +70,19 @@ export const routes: Routes = [
     title: 'Categories',
     pathMatch: 'full',
     canActivate: [permissionsGuard]
-  }
-
-
+  },
+  {
+    path: 'addcategory',
+    component: SaveEditCategoryComponent,
+    title: 'Add Categories',
+    pathMatch: 'full',
+    canActivate: [permissionsGuard]
+  },
+  {
+    path: 'addcategory/:id',
+    component: SaveEditCategoryComponent,
+    title: 'Edit Categories',
+    pathMatch: 'full',
+    canActivate: [permissionsGuard]
+  },
 ];

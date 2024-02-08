@@ -1,1 +1,17 @@
-<p>save-edit-category works!</p>
+<div class="nav-container">
+  <app-nav-sidebar></app-nav-sidebar>
+
+  <div class="form-container">
+    <form [formGroup]="dataForm" (ngSubmit)="onSubmit()" class="form-content" enctype="multipart/form-data">
+      <h1 class="form-title">Agregar categoría</h1>
+
+        <label class="form-label" for="name">Nombre</label>
+        <input class="form-input" type="text" name="name" id="name" formControlName="name" placeholder="Categoría">
+
+        <label class="form-label" for="description">Descripción</label>
+        <textarea class="form-input" name="description" id="description" formControlName="description" placeholder="Descripción"></textarea>
+
+        <button class="form-submit" type="submit">{{ isEdit ? 'Actulizar' : 'Agregar' }}</button>
+    </form>
+  </div>
+</div>
