@@ -5,6 +5,7 @@ import { JsonPipe, NgFor } from '@angular/common';
 import { NavSidebarComponent } from '../nav-sidebar/nav-sidebar.component';
 import { ActivatedRoute } from '@angular/router';
 import { CategoryService } from '../../../services/category/category.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-save-edit-category',
@@ -26,6 +27,7 @@ export class SaveEditCategoryComponent {
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private categoryService: CategoryService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -53,6 +55,7 @@ export class SaveEditCategoryComponent {
     this.categoryService.saveCategory(this.dataForm.value).subscribe({
       next: (data) => {
         console.log(data);
+        this.router.navigate(['/categories']);
       },
       error: (error) => {
         console.log(error);

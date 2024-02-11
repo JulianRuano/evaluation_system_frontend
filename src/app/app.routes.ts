@@ -5,7 +5,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboard.component';
 import { permissionsGuard } from './services/helpers/guard/permissions.guard';
 import { NavSidebarComponent } from './pages/admin/nav-sidebar/nav-sidebar.component';
-import { AddQuestionsComponent } from './pages/admin/add-questions/add-questions.component';
+import { SaveEditQuestionsComponent } from './pages/admin/save-edit-questions/save-edit-questions.component';
 import { QuestionsComponent } from './pages/admin/questions/questions.component';
 import { CategoriesComponent } from './pages/admin/categories/categories.component';
 import { SaveEditCategoryComponent } from './pages/admin/save-edit-category/save-edit-category.component';
@@ -52,14 +52,14 @@ export const routes: Routes = [
   },
   {
     path: 'addquestions',
-    component: AddQuestionsComponent,
+    component: SaveEditQuestionsComponent,
     title: 'Add Questions',
     pathMatch: 'full',
     canActivate: [permissionsGuard]
   },
   {
     path: 'addquestions/:id',
-    component: AddQuestionsComponent,
+    component: SaveEditQuestionsComponent,
     title:'Edit Questions',
     pathMatch: 'full',
     canActivate: [permissionsGuard]

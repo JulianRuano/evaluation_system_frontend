@@ -8,13 +8,13 @@ import { QuestionService } from '../../../services/question/question.service';
 
 
 @Component({
-  selector: 'app-add-questions',
+  selector: 'app-save-edit-questions',
   standalone: true,
   imports: [NgFor, ReactiveFormsModule, JsonPipe,NavSidebarComponent],
-  templateUrl: './add-questions.component.html',
-  styleUrl: './add-questions.component.css'
+  templateUrl: './save-edit-questions.component.html',
+  styleUrl: './save-edit-questions.component.css'
 })
-export class AddQuestionsComponent {
+export class SaveEditQuestionsComponent {
   id: number = this.route.snapshot.params['id'];
   isEdit: boolean = false;
 
