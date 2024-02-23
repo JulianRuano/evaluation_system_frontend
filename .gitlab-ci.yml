@@ -1,0 +1,49 @@
+image: node:20.11.1-alpine3.18
+
+stages:
+  - build
+  - test
+  - deploy
+
+build:
+  stage: build
+  script:
+    - npm install
+    - npm run build
+  artifacts:
+    paths:
+      - dist/
+  only:
+      - main
+  cache:
+      key:
+        files:
+          - package-lock.json
+      paths:
+        - node_modules/
+        - dist/
+      policy: pull
+
+test:
+  stage: test
+  script:
+    - echo "Running tests..."
+
+pages:
+  stage: deploy
+  variables:
+    GIT_STRATEGY: none # Do not clone git repo
+    NODE_ENV: production
+    PUBLIC_URL: https://gitlab.com/julianruano/evaluation_system_frontend
+  script:
+    - rm -rf public
+    - cp dist/evaluation_system_frontend/browser/index.html dist/evaluation_system_frontend/browser/404.html
+    - cp dist/evaluation_system_frontend/browser/* dist/
+    - mv dist public
+  only:
+    - main
+  artifacts:
+    paths:
+      - public
+
+

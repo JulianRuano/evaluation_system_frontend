@@ -81,6 +81,7 @@ export class SaveEditCategoryComponent {
           name: data.name,
           description: data.description
         });
+        console.log(data);
       },
       error: (error) => {
         console.log(error);
