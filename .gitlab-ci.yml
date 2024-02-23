@@ -1,12 +1,31 @@
 image: node:20.11.1-bullseye
 
 stages:
-  - build
   - test
+  - build
   - deploy
+
+test:
+  stage: test
+  rules:
+    - if: $CI_PIPELINE_SOURCE == 'merge_request_event'
+  before_script:
+    - apt update
+    - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+    - apt install -y ./google-chrome*.deb;
+    - export CHROME_BIN=/usr/bin/google-chrome
+  script:
+    - npm ci
+    - npm run test -- --no-watch --browsers=ChromeHeadlessCI
 
 build:
   stage: build
+  cache:
+      paths:
+        - node_modules/
+        - dist/
+  only:
+      - main
   script:
     - npm install
     - npm run build
@@ -14,17 +33,6 @@ build:
     paths:
       - dist/
       - node_modules/
-  only:
-      - main
-  cache:
-      paths:
-        - node_modules/
-        - dist/
-
-test:
-  stage: test
-  script:
-    - echo "Running tests..."
 
 pages:
   stage: deploy
