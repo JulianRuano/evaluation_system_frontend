@@ -13,16 +13,13 @@ build:
   artifacts:
     paths:
       - dist/
+      - node_modules/
   only:
       - main
   cache:
-      key:
-        files:
-          - package-lock.json
       paths:
         - node_modules/
         - dist/
-      policy: pull
 
 test:
   stage: test
