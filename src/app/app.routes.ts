@@ -11,12 +11,7 @@ import { CategoriesComponent } from './pages/admin/categories/categories.compone
 import { SaveEditCategoryComponent } from './pages/admin/save-edit-category/save-edit-category.component';
 
 export const routes: Routes = [
-  {
-    path: '',
-    component: NavSidebarComponent,
-    title: 'test',
-    pathMatch: 'full',
-  },
+
   {
     path: 'signup',
     component: SignupComponent,

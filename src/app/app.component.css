@@ -1,0 +1,18 @@
+.main{
+  display: flex;
+  flex-direction: row;
+  min-height: 100vh;
+}
+
+.content{
+  margin: 10px auto 0 auto;
+  width: 80%;
+}
+
+.sidebar{
+  background-color: #f4f4f4;
+}
+
+.body{
+  overflow-x: hidden;
+}
