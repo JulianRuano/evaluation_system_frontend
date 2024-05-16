@@ -36,9 +36,13 @@ export class LoginComponent {
       return;
     }
 
+
     this.authService.login(this.loginForm.value).subscribe({
       next: (data:any) => {
-        this.authService.setToken(data.token);
+
+        console.log(data);
+
+        this.authService.setToken(data.access_token);
         this.authService.getCurrentUser().subscribe({
           next: (data:any) => {
             this.authService.setUserData(data);
