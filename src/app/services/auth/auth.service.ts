@@ -19,18 +19,13 @@ export class AuthService {
   }
 */
 
-  login(user: any) {
+  public login(user: any) {
     const body = new URLSearchParams();
     body.set('client_id', 'microservices_client');
     body.set('grant_type', 'password');
     body.set('username', user.username);
     body.set('password', user.password);
     body.set('client_secret', 'SOBUMVzR6E8JzNqc0wlPM6tsTUHHwhyZ');
-
-    console.log(user.username);
-    console.log(user.password);
-
-
 
     return this.http.post(this.keycloakUrl, body.toString(), {
       headers: {
@@ -79,16 +74,9 @@ export class AuthService {
     }
   }
 
-  // Obtenemos el rol del usuario
-  public getUserRole() {
-    const user = this.getUserData();
-    return user.authorities[0].authority;
-  }
-
-
-  // Obtenemos el nombre del usuario
+  // Obtenemos el usuario actual
   public getCurrentUser() {
-    return this.http.get(`${API_URL}/auth/getCurrentUser`, {} );
+    return this.http.get(`${API_URL}/keycloak/getCurrentUser`);
   }
 
 

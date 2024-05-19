@@ -40,17 +40,17 @@ export class LoginComponent {
     this.authService.login(this.loginForm.value).subscribe({
       next: (data:any) => {
 
-        console.log(data);
-
         this.authService.setToken(data.access_token);
         this.authService.getCurrentUser().subscribe({
+          //llega el usuario
           next: (data:any) => {
             this.authService.setUserData(data);
             //vericicamos el rol del usuario
-            if (this.authService.getUserRole() == 'ADMIN') {
+            let roles = data.roles;
+            if (roles.includes('admin_client')) {
               this.router.navigate(['/admin']);
               this.authService.loginStatus.next(true);
-            } else if (this.authService.getUserRole() == 'USER') {
+            } else if (roles.includes('user_client')) {
               this.router.navigate(['/user']);
               this.authService.loginStatus.next(true);
             }
