@@ -3,7 +3,7 @@ import { CanActivateFn } from '@angular/router';
 export const permissionsGuard: CanActivateFn = (route, state) => {
   if (localStorage.getItem('user')) {
     const user = JSON.parse(localStorage.getItem('user') || '{}');
-    if (user.roles.includes('admin_client') || user.roles.includes('user_client')) {
+    if (user.authorities[0].authority === 'admin' || user.authorities[0].authority === 'user') {
       return true;
     }
   }

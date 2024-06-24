@@ -8,32 +8,13 @@ import { Subject } from 'rxjs';
 })
 export class AuthService {
 
-  private keycloakUrl = 'http://localhost:8090/realms/oauth2-realm/protocol/openid-connect/token';
-
   constructor(private http: HttpClient) { }
 
   public loginStatus = new Subject<boolean>();
 
-/*  public login(user: any) {
+  public login(user: any) {
     return this.http.post(`${API_URL}/auth/login`, user);
   }
-*/
-
-  public login(user: any) {
-    const body = new URLSearchParams();
-    body.set('client_id', 'microservices_client');
-    body.set('grant_type', 'password');
-    body.set('username', user.username);
-    body.set('password', user.password);
-    body.set('client_secret', 'SOBUMVzR6E8JzNqc0wlPM6tsTUHHwhyZ');
-
-    return this.http.post(this.keycloakUrl, body.toString(), {
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
-      }
-    });
-  }
-
 
   // Guardamos el token en el localStorage
   public setToken(token: string) {
@@ -76,7 +57,7 @@ export class AuthService {
 
   // Obtenemos el usuario actual
   public getCurrentUser() {
-    return this.http.get(`${API_URL}/keycloak/getCurrentUser`);
+    return this.http.get(`${API_URL}/auth/getCurrentUser`);
   }
 
 
