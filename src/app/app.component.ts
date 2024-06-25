@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { SignupComponent } from './pages/signup/signup.component';
-import { LoginComponent } from './pages/login/login.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { NavSidebarComponent } from './pages/admin/nav-sidebar/nav-sidebar.component';
+import { SignupComponent } from './pages/auth/components/signup/signup.component';
+import { LoginComponent } from './pages/auth/components/login/login.component';
+import { NavbarComponent } from './pages/navbar/navbar.component';
+import { NavSidebarComponent } from './pages/nav-sidebar/nav-sidebar.component';
 
 
 @Component({

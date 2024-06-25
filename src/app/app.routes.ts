@@ -1,14 +1,14 @@
 import { Routes } from '@angular/router';
-import { SignupComponent } from './pages/signup/signup.component';
+import { SignupComponent } from './pages/auth/components/signup/signup.component';
 import { HomeComponent } from './pages/home/home.component';
-import { LoginComponent } from './pages/login/login.component';
-import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboard.component';
-import { permissionsGuard } from './services/helpers/guard/permissions.guard';
-import { NavSidebarComponent } from './pages/admin/nav-sidebar/nav-sidebar.component';
-import { SaveEditQuestionsComponent } from './pages/admin/save-edit-questions/save-edit-questions.component';
-import { QuestionsComponent } from './pages/admin/questions/questions.component';
-import { CategoriesComponent } from './pages/admin/categories/categories.component';
-import { SaveEditCategoryComponent } from './pages/admin/save-edit-category/save-edit-category.component';
+import { LoginComponent } from './pages/auth/components/login/login.component';
+import { UserDashboardComponent } from './pages/user/components/user-dashboard/user-dashboard.component';
+import { permissionsGuard } from './core/guard/permissions.guard';
+import { NavSidebarComponent } from './pages/nav-sidebar/nav-sidebar.component';
+import { SaveEditQuestionsComponent } from './pages/questions/components/save-edit-questions/save-edit-questions.component';
+import { QuestionsComponent } from './pages/questions/components/list-questions/questions.component';
+import { CategoriesComponent } from './pages/categories/components/list-categories/categories.component';
+import { SaveEditCategoryComponent } from './pages/categories/components/save-edit-category/save-edit-category.component';
 
 export const routes: Routes = [
   {
